@@ -44,7 +44,7 @@ Make sure you have read/write rights for the current folder. Run the `run-networ
 
 > $ ./run-network.sh -n FlowNet2 -v data/0000000-imgL.png data/0000001-imgL.png flow.flo
 
-### 2.2 Optical flow with image formated output
+### 2.2 Optical flow with image formatted output
 > $ ./run-network-image.sh -n FlowNet2-s -v data/0000000-imgL.png data/0000001-imgL.png flow.png
 
 
