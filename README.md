@@ -44,8 +44,11 @@ Make sure you have read/write rights for the current folder. Run the `run-networ
 
 > $ ./run-network.sh -n FlowNet2 -v data/0000000-imgL.png data/0000001-imgL.png flow.flo
 
+### 2.2 Optical flow with image formated output
+> $ ./run-network-image.sh -n FlowNet2-s -v data/0000000-imgL.png data/0000001-imgL.png flow.png
 
-### 2.2 Optical flow for entire lists of images
+
+### 2.3 Optical flow for entire lists of images
 - we use the lean *FlowNet2-s* variant for maximum speed
 - we want to use GPU "1" on a multi-GPU system
 - we want to see the full network stdout printfest

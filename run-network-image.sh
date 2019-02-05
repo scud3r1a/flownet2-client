@@ -156,17 +156,17 @@ fun__debug_printf "Output:                    ${OUTPUT}";
 #    - "-w" executes "cd" in the container (each network has a folder)
 ## Note: The ugly conditional only switches stdout on/off.
 if test $VERBOSITY -ge 2; then
-    nvidia-docker run \
+    sudo nvidia-docker run \
         --rm \
         --volume "${PWD}:/input-output:rw" \
         --workdir "${WORKDIR}" \
-        -it "$CONTAINER" /bin/bash -c "cd ..; source set-env.sh; cd -; python run-flownet-docker.py --verbose --gpu ${GPU_IDX} ${WEIGHTS} ${DEPLOYPROTO} ${FIRST_INPUT} ${SECOND_INPUT} ${OUTPUT}"
+        -it "$CONTAINER" /bin/bash -c "cd ..; source set-env.sh; cd -; python run-flownet-docker-image.py --verbose --gpu ${GPU_IDX} ${WEIGHTS} ${DEPLOYPROTO} ${FIRST_INPUT} ${SECOND_INPUT} ${OUTPUT}"
 else
-    nvidia-docker run \
+    sudo nvidia-docker run \
         --rm \
         --volume "${PWD}:/input-output:rw" \
         --workdir "${WORKDIR}" \
-        -it "$CONTAINER" /bin/bash -c "cd ..; source set-env.sh; cd -; python run-flownet-docker.py --gpu ${GPU_IDX} ${WEIGHTS} ${DEPLOYPROTO} ${FIRST_INPUT} ${SECOND_INPUT} ${OUTPUT}"
+        -it "$CONTAINER" /bin/bash -c "cd ..; source set-env.sh; cd -; python run-flownet-docker-image.py --gpu ${GPU_IDX} ${WEIGHTS} ${DEPLOYPROTO} ${FIRST_INPUT} ${SECOND_INPUT} ${OUTPUT}"
         > /dev/null;
 fi
 
